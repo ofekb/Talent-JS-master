@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (() => {
+            console.log("line 1");
+            setTimeout(() => { console.log("line 2"); }, 0)
+            console.log("line 3");
+        })();
+
+        document.write("talent");
+
+        //blocking IO (input/ output) operations
+        setTimeout(() => {
+            alert("hello");
+            prompt("enter your name");
+        }, 0)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

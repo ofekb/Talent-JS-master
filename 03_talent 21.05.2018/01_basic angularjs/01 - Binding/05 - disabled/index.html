@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body>
+
+    <input type="number" ng-model="invitations">
+    <button ng-disabled="invitations <= 0">
+        Send {{invitations}} invitations
+    </button>
+    <br><br>
+
+    <input type="checkbox" ng-model="checked">
+	<label>Check me to toggle</label>
+	<button ng-disabled="!checked">Button</button>
+
+</body>
+</html>

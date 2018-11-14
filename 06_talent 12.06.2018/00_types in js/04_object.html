@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+
+      //object key can be: symbol / string
+
+
+      let key1="firstName";
+
+
+      function key2(){
+          return "lastName";
+      }
+
+      let key3=Symbol("age");
+
+
+     // ()=> can not access wuth "this" the properties of the object that contains the function
+
+      let student={
+          [key1]:"Eldad",
+          [key2()]:"N.",
+          [key3]:20,
+          [Symbol("city")]:"Tel Aviv",
+          printName1:function(){console.log("printName1: "+this.lastName)},
+          printName2:()=>{console.log("printName2: "+this.lastName)}, 
+      }
+
+      console.log(student);  //{firstName: "Eldad", lastName: "N.", Symbol("age"): 20, Symbol(city):"Tel Aviv", printName1: ƒ, printName2: ƒ}
+      student.printName1();  //printName1: N.
+      student.printName2();  //printName2: undefined
+      console.log(key3,student[key3]);  //Symbol(age) 20
+  </script>
+</head>
+<body>
+    
+</body>
+</html>

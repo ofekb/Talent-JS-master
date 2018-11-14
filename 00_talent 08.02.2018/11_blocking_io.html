@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+        function alertMsg(){
+            document.body.style.backgroundColor = "#0a2629";
+            document.getElementById("msg").innerHTML=("Hello World");
+
+            setTimeout(function() {
+                alert("Hello World");  //blocking I/O (I-input O-otput) 
+            }, 0);
+           
+        }
+        function simpleMsg(){
+            document.body.style.backgroundColor = "yellow";
+            document.getElementById("msg").innerHTML=("Hello World");
+        }
+        </script>
+</head>
+
+<body>
+<button onclick="simpleMsg()">simple msg</button>
+<button onclick="alertMsg()">alert msg</button>
+
+
+<div id="msg"></div>
+</body>
+
+</html>

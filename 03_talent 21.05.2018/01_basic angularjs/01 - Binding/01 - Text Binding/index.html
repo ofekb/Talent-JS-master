@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<!-- ng-... is called "Directive".
+    ng-app tells AngularJS to be active anywhere inside this element.
+    In this case the entire document: -->
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body>
+
+    <label>Enter your first name: </label>
+
+    <!-- ng-model links the input element and the model.
+        This means that any changes to the control update the data in your model,
+        and when you change the model it updates the control: -->
+    <input type="text" ng-model="firstName"> 
+
+    <!-- The {{ }} are called "Expressions".
+        They are a declarative way of specifying data binding locations in the HTML.
+        AngularJS will automatically update this text whenever binded model changes: -->
+    <h2>Hello {{firstName}}</h2>
+
+</body>
+</html>

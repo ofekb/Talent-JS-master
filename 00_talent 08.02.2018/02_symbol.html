@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+<Script>
+
+
+    /*
+    properties with a Symbol key:
+    1. can have two properties with the same string passed to symbol
+    2. cam access the properties only with [] and not with .
+    */
+
+
+
+
+    var a1=Symbol();
+    var a2=Symbol();
+    //console.log(a1+""); //Uncaught TypeError: Cannot convert a Symbol value to a string
+
+    console.log(a1.toString()); //Symbol()
+    console.log(a1==a2);   //false
+
+
+    var b1=Symbol("Tomer");
+    var b2=Symbol("Tomer");
+
+    console.log(b1.toString()); //Symbol(Tomer)
+    console.log(b2.toString()); //Symbol(Tomer)
+    console.log(b1==b2);   //false
+
+
+    var user={
+        firstName:"Pavel",
+        grade:100,
+        address:"Tel Aviv"
+    };
+
+    console.log(user);  //{firstName: "Pavel", grade: 100, address: "Tel Aviv"}
+
+    user.firstName="Amichay";  //--> overriding to the old value
+    console.log(user);  //{firstName: "Amichay", grade: 100, address: "Tel Aviv"}
+
+
+    user.lastName="JB";  //--> adding a new property to the object
+    console.log(user); //{firstName: "Amichay", grade: 100, address: "Tel Aviv", lastName: "JB"}
+    console.log(JSON.stringify(user));  //{"firstName":"Amichay","grade":100,"address":"Tel Aviv","lastName":"JB"}
+
+    console.log(user["firstName"]);  //"Amichay"
+    console.log(user.firstName);     //"Amichay"
+    
+    for(var x in user){
+        console.log("in- loop key: "+x, " value: "+user[x]);
+    }
+        /*
+        in- loop key: firstName  value: Amichay
+        in- loop key: grade  value: 100
+        in- loop key: address  value: Tel Aviv
+        in- loop key: lastName  value: JB
+        */
+
+
+    var key1=Symbol("firstName");
+    var userSymbol={
+        [key1]:"Pavel",
+        grade:100,
+        address:"Tel Aviv"
+    };
+
+    console.log(userSymbol);  //{grade: 100, address: "Tel Aviv", Symbol(firstName): "Pavel"}
+
+
+    var key2=Symbol("firstName");
+    userSymbol[key2]="Amichay";  //--> overriding to the old value
+    console.log(userSymbol);  //{grade: 100, address: "Tel Aviv", Symbol(firstName): "Pavel", Symbol(firstName): "Amichay"}
+
+
+    userSymbol.lastName="JB";  //--> adding a new property to the object
+    console.log(userSymbol); //{grade: 100, address: "Tel Aviv", lastName: "JB", Symbol(firstName): "Pavel", Symbol(firstName): "Amichay"}
+
+
+    console.log(userSymbol[Symbol("firstName")]); //undefined
+    console.log(userSymbol[key1]);   //"Pavel"
+    console.log(userSymbol[key2]);   //"Amichay"
+    console.log(JSON.stringify(userSymbol));  //{"grade":100,"address":"Tel Aviv","lastName":"JB"}
+
+    userSymbol[key1]="Tomer";
+    console.log(userSymbol[key1]);   //"Tomer"
+
+
+
+    for(var x in userSymbol){
+        console.log("in- loop key: "+x, " value: "+userSymbol[x]);
+    }
+        /*
+        in- loop key: grade  value: 100
+        in- loop key: address  value: Tel Aviv
+        in- loop key: lastName  value: JB
+        */
+   
+</Script>
+</head>
+<body>
+    
+</body>
+</html>

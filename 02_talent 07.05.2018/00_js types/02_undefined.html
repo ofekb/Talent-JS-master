@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+
+        /*
+        WHEN WE USE THE "!" OPERATOR - WE ARE DOING CASTING TO BOOLEAN TYPE
+        */
+
+        console.log(undefined == false);       //--> false
+        console.log(undefined == true);        //--> false
+
+
+        console.log(!undefined === false);       //--> false
+        console.log(!undefined === true);        //--> true
+
+
+        console.log(null == false);            //--> false
+        console.log(null == true);             //--> false
+
+
+        if (undefined == false) {
+            console.log(`false is FALSE`);
+        }
+
+        if (undefined == true) {
+            console.log(`false is TRUE`);
+        }
+
+        if (!undefined) {
+            console.log(`false is !`);      //-->  false is !
+        }
+
+
+      
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

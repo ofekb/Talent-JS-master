@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+        function f1(firstName, lastName, age) {
+            console.log(`firstName: ${firstName} ,lastName ${lastName},age: ${age}`);
+        }
+
+        f1("A");  //firstName: A ,lastName undefined,age: undefined
+        
+
+        function f2(firstName, lastName, age) {
+
+            firstName = firstName || "Bob";
+            lastName = lastName || "Alice";
+            age = age || 22;
+            console.log(`firstName: ${firstName} ,lastName ${lastName},age: ${age}`);
+        }
+        f2("A"); //firstName: A ,lastName Alice,age: 22
+
+        f2(undefined, "XXX");  //firstName: Bob ,lastName XXX,age: 22
+
+
+        function f3(firstName = "Bob", lastName = "Alice", age = 22) {
+            console.log(`firstName: ${firstName} ,lastName ${lastName},age: ${age}`);
+        }
+
+        f3("A"); //firstName: A ,lastName Alice,age: 22
+
+        f3(undefined, "XXX");  //firstName: Bob ,lastName XXX,age: 22
+
+
+        function f4({ firstName, lastName, age }) {
+            console.log(`firstName: ${firstName} ,lastName ${lastName},age: ${age}`);
+        }
+
+
+        let user1 = {
+            firstName: "Bob",
+            lastName: "Alice",
+            age: 22,
+            grade: 100,
+            address: "Tel Aviv"
+        }
+
+
+        f4(user1);
+
+
+
+
+
+        function f5({ ...userParam }) {
+
+            userParam.age = 40;
+            console.log(`userParam: ${JSON.stringify(userParam)}`);
+        }
+
+
+        let user2 = {
+            firstName: "Bob",
+            lastName: "Alice",
+            age: 22,
+            grade: 100,
+            address: "Tel Aviv"
+        }
+        let {firstName,age}=user2;
+
+        console.log(`before f5 user5: ${JSON.stringify(user2)}`);
+        f5(user2);
+        console.log(`After f5 user5: ${JSON.stringify(user2)}`);
+
+
+
+
+        function f6(userParam) {
+
+            userParam.age = 40;
+            console.log(`userParam: ${JSON.stringify(userParam)}`);
+        }
+
+
+        let user3 = {
+            firstName: "Bob",
+            lastName: "Alice",
+            age: 22,
+            grade: 100,
+            address: "Tel Aviv"
+        }
+
+        console.log(`before f6 user5: ${JSON.stringify(user3)}`);
+        f6(user3);
+        console.log(`After f6 user5: ${JSON.stringify(user3)}`);
+
+
+
+        //------------------rest params------------------
+        function f7(...nums) {
+            let res = (nums.length && typeof(nums[0])==="string")?"":0;
+            for (let x of nums){
+                res += x;
+            }
+                
+            return res;
+        }
+
+        console.log(f7());
+        console.log(f7(1,1));  //2
+        console.log(f7(1,1,1,1,1));  //2
+        console.log(f7("Hello","-","World"));  //Hello-World
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

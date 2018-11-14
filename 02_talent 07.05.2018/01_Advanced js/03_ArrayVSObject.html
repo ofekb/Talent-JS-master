@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        //object-----------
+        var a1 = {
+            name: "Zohar"
+        };
+
+        var a2 = new Object();
+        a2.name = "Zohar";
+
+
+        var a3 = a2;
+
+        var str = "name";
+
+        console.log("a1.name", a1.name);
+        console.log("a1['name']", a1['name']);
+        console.log("a1[str]", a1[str]);
+    
+        //array-----------
+        var a4 = [1, 2, 3, 4];
+        var a5 = new Array(1, 2, 3, 4);
+        var a6 = a5;
+
+        console.log("a4", a4);
+        console.log("a5", a5);
+        console.log("a6", a6);
+
+        console.log("a4==a5", a4 == a5);
+        console.log("a4==a6", a4 == a6);
+        console.log("a5==a6", a5 == a6);
+
+
+        a4[0] = 5;
+        a5[0] = 8;
+        console.log("a4", a4);
+        console.log("a5", a5);
+        console.log("a6", a6);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

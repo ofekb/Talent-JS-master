@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+        /*
+        HOISTING
+        -------------------
+        using the code before the decleration:
+        1) functions - can be used regular before the decleration
+        2) var - is undefined before decleration
+        3) let (es6) - DTZ - dead time zone
+        4) const (es6) - DTZ - dead time zone
+        
+        */
+        console.log(f1);/*
+        ƒ f1() {
+            console.log("f1");
+        }
+        */
+
+
+        console.log(f2);  //undefined 
+        //console.log(f3);  //Uncaught ReferenceError: f3 is not defined
+        //console.log(f4);  //Uncaught ReferenceError: f4 is not defined
+
+   
+
+        f1();  //f1
+        //f2();  //Uncaught TypeError: f2 is not a function  --> f2 is undefined
+
+
+        function f1() {
+            console.log("f1");
+        }
+
+
+        var f2 = function () {
+            console.log("f1");
+        }
+
+
+        let f3 = function () {
+            console.log("f1");
+        }
+
+
+        const f4 = function () {
+            console.log("f1");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

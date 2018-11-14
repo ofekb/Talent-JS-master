@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+
+    <script>
+        var a;
+        //====================value types===================
+
+        a = 9;
+        console.log("a = 9",`${typeof (a)}`);
+        a = true;
+        console.log("a = true",`${typeof (a)}`);
+        a = "Talent";
+        console.log(`a = "Talent"`,`${typeof (a)}`);
+        a = undefined;
+        console.log("a = undefined",`${typeof (a)}`);
+        a = null;
+        console.log("a = null",`${typeof (a)}`);
+        a = Symbol();
+        console.log("a = Symbol()",`${typeof (a)}`);
+
+
+        /*
+        a = 9 number
+        a = true boolean
+        a = "Talent" string
+        a = undefined undefined
+        a = null object
+        a = Symbol() symbol
+        */
+
+
+         //====================ref types===================
+
+        a = [1,2,3];
+        console.log("a = [1,2,3]",`${typeof (a)}`);
+        a = {};
+        console.log("a = {}",`${typeof (a)}`);
+        a = ()=>{};
+        console.log(`a = ()=>{}`,`${typeof (a)}`);
+
+
+        /*
+        a = [1,2,3] object
+        a = {} object
+        a = ()=>{} function
+        */
+    </script>
+
+</head>
+
+
+<body>
+
+</body>
+
+</html>

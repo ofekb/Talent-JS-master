@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+        let counter = 0;
+
+        function getFuncIndex() {
+           var currentCounter = counter++;
+
+            return function () {
+                console.log("global counter: "+counter, "current counter: "+currentCounter);
+                return currentCounter;
+            }
+
+        }
+
+
+
+        let firstTimer = getFuncIndex();    
+        let secondTimer = getFuncIndex();
+        let thirdTimer = getFuncIndex();
+        
+
+        firstTimer();
+        secondTimer();
+        thirdTimer();
+
+        firstTimer();
+        secondTimer();
+        thirdTimer();
+
+
+
+        /*
+        output:
+        -----------------------------------------
+        global counter: 3 current counter: 0
+        global counter: 3 current counter: 1
+        global counter: 3 current counter: 2
+        global counter: 3 current counter: 0
+        global counter: 3 current counter: 1
+        global counter: 3 current counter: 2
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

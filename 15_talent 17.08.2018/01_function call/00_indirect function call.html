@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function execFunc(func) {
+            func();
+        }
+
+
+
+
+        execFunc(f1);                   //--> I am f1
+        execFunc(f2.bind(this, 8));     //--> I am f2, and got as parameter: 8
+        execFunc(f2.bind(this, 12));    //--> I am f2, and got as parameter: 12
+        execFunc(() => { f2(5) });      //--> I am f2, and got as parameter: 5
+
+        function f1() {
+            console.log("I am f1");
+        }
+
+
+        function f2(n1) {
+            console.log("I am f2, and got as parameter: " + n1);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

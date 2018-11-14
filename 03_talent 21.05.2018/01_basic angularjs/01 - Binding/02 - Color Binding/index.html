@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body>
+
+    <label style="color:magenta;">Enter a Color: </label>
+    
+    <input type="text" ng-model="color">
+    
+    <!-- Note: Following example will work only on Inline Styling
+        and Embedded Styling, but won't work on External Styling: -->
+    <h2 style="color: {{color}};">Color: {{color}}</h2>
+
+</body>
+</html>

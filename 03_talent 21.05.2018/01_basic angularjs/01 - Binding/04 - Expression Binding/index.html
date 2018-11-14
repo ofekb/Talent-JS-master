@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body>
+
+    <input type="number" ng-model="a1">
+    <span>+</span>
+    <input type="number" ng-model="a2">
+    <span>=</span>
+
+    <!-- ng-show contains an expression telling angular when to show the result: -->
+    <span ng-show="a1 != null && a2 != null">{{a1 + a2}}</span>
+    <br><br>
+
+    <!-- The + will concatenate and not add if we are using <input type="text">.
+        The solution is to do the following in the controller: $scope.parseInt = parseInt;
+        and then, do the following expression: {{ parseInt(a1) + parseInt(a2) }}
+		<input type="number"> will work fine though. -->
+
+    <input type="number" ng-model="b1">
+    <span>-</span>
+    <input type="number" ng-model="b2">
+    <span>=</span>
+    <span ng-show="b1 != null && b2 != null">{{b1 - b2}}</span>
+    <br><br>
+
+    <input type="number" ng-model="c1">
+    <span>*</span>
+    <input type="number" ng-model="c2">
+    <span>=</span>
+    <span ng-show="c1 != null && c2 != null">{{c1 * c2}}</span>
+    <br><br>
+
+    <input type="number" ng-model="d1">
+    <span>/</span>
+    <input type="number" ng-model="d2">
+    <span>=</span>
+    <span ng-show="d1 != null && d2 != null">{{d1 / d2}}</span>
+
+</body>
+</html>

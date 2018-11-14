@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+        function calc(...nums) {
+            let res = 0;
+            nums.forEach(element => { res += element; });
+
+            function getAvg() {
+                return res / nums.length;
+            }
+
+            return getAvg();
+        }
+
+
+        console.log(calc(3,3,3));  //3
+        console.log(calc(1,2,3));  //2
+
+
+        function calcOuter(...nums) {
+            let res = 0;
+            nums.forEach(element => { res += element; });
+
+            return (lng=nums.length)=> res /lng
+        }
+
+
+        let calcInnerPointer=calcOuter(1,2,3);
+        console.log(calcInnerPointer()); //2
+        console.log(calcInnerPointer);  //(lng=nums.length)=> res /lng 
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

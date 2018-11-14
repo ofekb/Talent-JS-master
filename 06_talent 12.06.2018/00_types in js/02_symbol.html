@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+
+      //Symbol is value type
+      //stackטיפוס שיוצר ערך ייחודי הנשמר ישירות בתוך ה
+      let s1=Symbol();
+      let s2=Symbol();
+      console.log(`s1 == s2 is ${s1 == s2}`);  //--> s1 == s2 is false
+      console.log(s1,s2);  //Symbol() Symbol()
+
+      let s3=Symbol("Talent");
+      let s4=Symbol("Talent");
+      console.log(`s3 == s4 is ${s3 == s4}`);  //--> s3 == s4 is false
+      console.log(s3,s4);  //Symbol(Talent) Symbol(Talent)
+  </script>
+</head>
+<body>
+    
+</body>
+</html>

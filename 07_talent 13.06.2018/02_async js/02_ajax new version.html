@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <script>
+                fetch("https://restcountries.eu/rest/v2/name/israel?fullText=true&fields=flag")
+                        .then(res => {
+                                console.log(res)  //here we get the full response data & headers
+                                return res.json()  //this returns a promise of the response json body
+                        })
+                        .then(res => { console.log(res) })
+                        .catch((err) => { console.log(err)});
+        </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

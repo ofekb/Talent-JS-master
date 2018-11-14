@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+        //way 1 - simple way
+        function f1(str) {
+            console.log(`${str} in f1`);
+        }
+        f1("f1");  //f1 in f1
+
+        //way 2 - a pointer to a simple function
+        var f2 = f1;
+        f2("f2");  //f2 in f1
+
+
+        //way 3 - a pointer to a anonymo function
+        var f3 = function f4(str) {
+            console.log(`${str} in f4`);
+            if (str == "str4")
+                f4("I am recursion"); //--> the only place that we can call the function with the direct name
+        };
+
+        //f4("f4"); // -->  //Uncaught ReferenceError: f4 is not defined
+        f3("str4");  //I am recursion in f4
+        f3("f3");  //f3 in f4
+
+
+        //way 4 - a function without name that is stored in a var
+        var f5 = function (str) {
+            console.log(`${str} in f5`);
+        }
+        f5("f5");  //f5 in f5
+
+
+        //way 5 - a lambda function without name that is stored in a var
+        var f6 = (str) => { console.log(`${str} in f6`); };
+        f6("f6");  //f6 in f6
+    </script>
+
+</head>
+
+
+
+<body>
+
+</body>
+
+</html>

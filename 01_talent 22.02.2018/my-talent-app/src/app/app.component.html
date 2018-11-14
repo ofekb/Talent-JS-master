@@ -1,0 +1,12 @@
+<main>
+    <app-serch-book></app-serch-book>
+    <hr>
+
+    <app-book-list (onChangeBook)="onItemChange($event)"></app-book-list>
+
+    
+    <app-single-book 
+    *ngIf="!bookService.searchInAction"
+    [selectedBook]="currentBook" 
+    [bookImg]="image"></app-single-book>
+</main>

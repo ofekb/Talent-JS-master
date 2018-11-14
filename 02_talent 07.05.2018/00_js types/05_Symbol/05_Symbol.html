@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+
+        //value type holds the same value in the stack
+        var num1 = 3;
+        var num2 = 3;
+        console.log(num1 == num2);  //true
+
+
+        //Symbol is a value type 
+        var a1 = Symbol();
+        var a2 = Symbol();
+        console.log(a1 == a2,a1,a2);  //false Symbol() Symbol()
+
+
+        var a11 = Symbol("summer");
+        var a22 = Symbol("summer");
+        console.log(a11 == a22,a11,a22);  //false Symbol(summer) Symbol(summer)
+
+
+        //object type refers to different objects in the heap
+        //so the pointers in the stack are not the same
+        var arr1 = [];
+        var arr2 = [];
+        console.log(arr1 == arr2);  //false
+
+
+
+        var obj1 = {
+            name: "Shimon",
+            grade: 100
+        };
+        console.log("obj1", obj1);
+
+        obj1.lastName = "F.";
+        obj1.name = "Assaf";
+        console.log("obj1", obj1);
+
+
+
+        var key1 = Symbol("name");
+        var key2 = Symbol("name");
+
+        var obj2 = {
+            [key1]: "Shimon",
+            grade: 100
+        };
+        console.log("obj2", obj2);
+
+        obj2.lastName = "F.";
+        obj2[key2] = "Assaf";
+        console.log("obj2", obj2);
+
+        obj2.lastName = "A.";
+        obj2.name = "Oren";
+        console.log("obj2", obj2);
+
+        obj2.name = "Julian";
+        console.log("obj2", obj2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

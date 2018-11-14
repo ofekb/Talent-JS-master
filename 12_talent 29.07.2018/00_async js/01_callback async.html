@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+        //in this version - the user is blocked while the loop is runing
+        function funcV1() {
+            document.getElementById("res").innerHTML += "<p>funcV1 START</p>";
+            for (let i = 0; i < 10 ** 10; i++);
+            document.getElementById("res").innerHTML += "<p>funcV1 END</p>";
+        }
+
+        //in this version - the user is not blocked while the setTimeout is in wait mode
+        function funcV2() {
+            document.getElementById("res").innerHTML += "<p>funcV2 START</p>";
+            setTimeout(
+                () => { document.getElementById("res").innerHTML += "<p>funcV2 END</p>"; }
+                , 17000)
+
+        }
+
+
+        //in this version - the user is not blocked while the setTimeout is in wait mode
+        //but the user will be blocked while the loop is runing
+        function funcV3() {
+            document.getElementById("res").innerHTML += "<p>funcV3 START</p>";
+            setTimeout(
+                () => {
+                    for (let i = 0; i < 10 ** 10; i++);
+                    document.getElementById("res").innerHTML += "<p>funcV3 END</p>";
+                }
+                , 17000)
+        }
+
+    </script>
+</head>
+
+<body>
+    <label>test input:</label>
+    <input>
+    <hr/>
+    <button onclick="funcV1()">click me - V1</button>
+    <button onclick="funcV2()">click me - V2</button>
+    <button onclick="funcV3()">click me - V3</button>
+
+
+    <div id="res"></div>
+</body>
+
+</html>

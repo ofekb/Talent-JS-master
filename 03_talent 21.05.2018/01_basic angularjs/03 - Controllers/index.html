@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<!--Single page application - with one ng-app decleration-->
+<html ng-app="productsModule">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="productsModule.js"></script>
+</head>
+
+<body>
+    <!-- Declaring the Controller 1 -->
+    <div ng-controller="SecondController">
+<h1>title: {{title}}</h1>
+    </div>
+
+
+    <!-- Declaring the Controller 2 -->
+    <div ng-controller="ProductsController">
+
+        <!-- All Models inside the $scope variable are automatically accessible: -->
+        <h4>Product ID: {{productID}}</h4>
+
+        <!-- An Expression can be also used: -->
+        <h4>Product Name and Price: {{productName + ", $" + unitPrice}}</h4>
+
+    </div>
+
+</body>
+
+</html>

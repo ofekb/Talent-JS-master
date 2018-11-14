@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+
+        function funcV1() {
+            document.getElementById("res").innerHTML += "<p>funcV1 START</p>";
+            for (let i = 0; i < 10 ** 10; i++);
+            document.getElementById("res").innerHTML += "<p>funcV1 END</p>";
+        }
+
+    </script>
+</head>
+
+<body>
+    <label>test input:</label>
+    <input>
+    <hr/>
+    <button onclick="funcV1()">click me - V1</button>
+
+    <div id="res"></div>
+</body>
+
+</html>

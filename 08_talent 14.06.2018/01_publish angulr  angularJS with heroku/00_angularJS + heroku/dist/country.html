@@ -1,0 +1,17 @@
+<div>
+
+        <h1>name: {{countryInfo.name}}</h1>
+        <img src="{{countryInfo.flag}}"/>
+        <p>alpha2Code: {{countryInfo.alpha2Code}}</p>
+        <p>alpha3Code: {{countryInfo.alpha3Code}}</p>
+        <p>capital: {{countryInfo.capital}}</p>
+        <p>borders:
+                <ol>
+                        <li ng-repeat="x in countryInfo.borders">{{x}}</li>
+                </ol>
+        </p>
+        <p>nativeName: {{countryInfo.nativeName}}</p>
+
+</div>
+
+<a href="#/countries">back to country list</a>

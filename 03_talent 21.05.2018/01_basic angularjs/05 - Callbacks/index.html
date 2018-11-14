@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userModule">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script>
+        var userModule = angular.module("userModule", []);
+
+        userModule.controller("UserController", function ($scope, $http) {
+            $scope.userArr = [];
+            $scope.numberPage = 0;
+            $scope.clickFunc = function () {
+                $http.get("https://reqres.in/api/users?page="+$scope.numberPage).success(function (res) {
+                $scope.userArr = res.data;
+            });
+            }
+            $scope.clickFunc();
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div ng-controller="UserController">
+        <input ng-model="numberPage" />
+        <button ng-click="clickFunc()">click me</button>
+        <ul>
+            <li ng-repeat="x in userArr">
+                {{x.first_name+" "+x.last_name}}
+                <br/>
+                <img src="{{x.avatar}}" />
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

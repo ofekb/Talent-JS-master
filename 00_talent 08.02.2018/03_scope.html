@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script>
+/*
+            | before declaretion   |  scope                 | re - declare
+_________________________________________________________________________________________________
+
+function    | normal value         | wrraping function      |  OK - will use the last declare
+_________________________________________________________________________________________________
+
+var         | undefined            | wrraping function      |  OK - will use the last declare
+_________________________________________________________________________________________________
+
+let         | DTZ                  | wrraping block         |  NOT OK - ReferenceError
+_________________________________________________________________________________________________
+
+const       | DTZ                  | wrraping block         |  NOT OK - ReferenceError
+
+*/
+        let a1=3;
+        a1=4;
+        //let a1=4;  //Uncaught SyntaxError: Identifier 'a1' has already been declared
+
+        var b1=3;
+        var b1=4;  //overrides the first b1
+ 
+        console.log("Outer: " + b1); //Outer: 4
+
+
+        function f(){  /* start scope for: a1(DTZ) b1(undefined) x2(undefined)*/
+
+            //console.log(a1); //Uncaught ReferenceError: a1 is not defined at f =DTZ
+            console.log("Inner: " + b1);  //Inner undefined
+
+            let a1=3;
+            var b1=3;
+
+
+
+            console.log("a1 Before block: " + a1);
+            if(a1==3){  /* start scope for: x1(DTZ)*/
+                let x1=3;
+                let a1=4;  //shadow effect
+                var x2=3; 
+
+                console.log("a1 In block: " + a1);
+            }
+
+            console.log("a1 After block: " + a1);
+        }
+
+        f();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

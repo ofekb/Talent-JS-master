@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+
+        fetch("https://restcountries.eu/rest/v2/all?fields=name")
+            .then(res => {
+                console.log(res);
+                
+                if (res.ok)
+                    return res.json();
+            })
+            .then(data => { console.log(data) })
+            .catch((() => { console.log("error in request") }));
+
+
+
+        let num = 0;
+
+
+        function addIndex() {
+            num++;
+
+            var myPromise = new Promise((resolve, rejected) => {
+                (num % 2 == 0) ? resolve(num) : rejected(num);
+            });
+
+            myPromise
+                .then((x) => {
+                    console.log("ok " + x);
+                    return new Promise((x1, x2) => { x1(999) })
+                })
+                .then((num) => { console.log("second promise: " + num) })
+                .then(() => { console.log("last action in this chaining") })
+                .catch((y) => { console.log("not ok " + y) });
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="addIndex()">click me</button>
+</body>
+
+</html>

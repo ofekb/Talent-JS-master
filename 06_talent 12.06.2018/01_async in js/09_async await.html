@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        async function test(num) {
+            if (!isNaN(num)) {
+                // if we return a value in an async function - the value is passed to the "then"
+                return num * num;
+            }
+            else {
+                // if we throw an error in an async function - the error is passed to the "catch"
+                throw new Error(`Please send me a number , and not ${num}`);
+            }
+
+        }
+
+
+        test("Alice")
+            .then(
+                (res) => {
+                    console.log(`I got ${res} from the async function`)
+                })
+            .catch((err) => {
+                console.log(err)
+            });
+
+
+
+        test(12)
+            .then(
+                (res) => {
+                    console.log(`I got ${res} from the async function`)
+                })
+            .catch((err) => {
+                console.log(err)
+            });
+
+
+            /*
+            output:
+            ____________________________________
+
+            I got 144 from the async function
+            Error: Please send me a number , and not Alice
+
+            */
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

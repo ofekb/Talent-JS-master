@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Car(c) {
+            this.color = c || "yellow";
+
+            this.printMsg = () => { console.log(this.color) }
+
+            return 3;
+        }
+
+
+        function Bus(s) {
+            this.seets = s;
+
+            this.printMsg = () => { console.log(this.seets) }
+            Car.call(this);
+        }
+
+        Bus.prototype = Object.create(Car.prototype);
+
+
+        let car1 = new Car("blue");
+
+        let bus2 = new Bus(20);
+
+        let car3 = Car("red");
+        car1.printMsg();
+        bus2.printMsg();
+        console.log(car1);
+        console.log(bus2);
+        console.log(car3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

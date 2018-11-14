@@ -1,0 +1,9 @@
+<div>
+    <h1>All countreies</h1>
+    <table>
+        <tr ng-repeat="x in countryList">
+            <td><a href="#/country/{{x.name}}">{{x.name | uppercase}}</a></td>
+            <td><img src="{{x.flag}}"/></td>
+        </tr>
+    </table>
+</div>

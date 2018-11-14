@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function test() {
+            console.log("line 1");
+
+            setTimeout(() => { console.log("line 2"); }, 0);
+
+            console.log("line 3");
+        }
+
+        test();
+
+        /*
+        output:
+        -------------------------
+        line 1
+        line 3
+        line 2
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

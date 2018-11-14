@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+      
+                //memory leaks can happen if we do not declare a variable with "var"/"let"/"const"
+                //because they are added to the window object
+        
+                function func1() {
+                    num1 = 9;
+                }
+                var func2;
+        
+        
+                (() => {
+                    'use strict';
+        
+                    func2 = function () {
+                        window.x=2;
+                        num2 = 9;  //ERROR IN STRICT MODE - Uncaught ReferenceError: num2 is not defined
+                    }
+                })();
+        
+        
+                func1();
+                func2();
+          
+    </script>
+</head>
+
+<body>
+    <button onclick="f()">f</button>
+    <button onclick="f1()">f1</button>
+</body>
+
+</html>

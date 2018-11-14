@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html ng-app="productsModule">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script>
+        var productsModule = angular.module("productsModule", []);
+
+        productsModule.controller("ProductsController", function ($scope) {
+            $scope.products = ["Water", "Apple","Bread","Pizza"];
+        })
+    </script>
+</head>
+
+<body>
+    <div ng-controller="ProductsController">
+        <ul>
+            <li ng-repeat="item in products">
+              {{item}}-number in array {{$index}}
+            </li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>

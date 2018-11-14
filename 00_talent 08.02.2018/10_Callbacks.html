@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        //-------------------------SYNC-------------------
+        function calcNum() {
+            document.getElementById("res").innerHTML += "calcNum START <br/>";
+            for (var i = 0; i < Math.pow(10, 10); i++);
+            document.getElementById("res").innerHTML += "calcNum END <br/>";
+            return i;
+
+        }
+
+        function longOperation() {
+            document.getElementById("res").innerHTML += "longOperation START <br/>";
+            let num = calcNum();  //wait to the result
+            document.getElementById("res").innerHTML += `result: ${num}<br/>`;
+            document.getElementById("res").innerHTML += "longOperation END <br/>";
+        }
+
+
+        //-----------------------ASYNC--------------------
+        function calcNumAsync(callBack) {
+            document.getElementById("res1").innerHTML += "calcNum START <br/>";
+
+            setTimeout(
+                () => {
+                    for (var i = 0; i < Math.pow(10, 10); i++);
+                    callBack(i);
+                }
+                , 3000)
+
+            document.getElementById("res1").innerHTML += "calcNum END <br/>";
+        }
+
+        function longOperationAsync() {
+            document.getElementById("res1").innerHTML += "longOperation START <br/>";
+            calcNumAsync(
+                (num) => { document.getElementById("res1").innerHTML += `result: ${num}<br/>`; }
+            );
+            document.getElementById("res1").innerHTML += "longOperation END <br/>";
+        }
+    </script>
+</head>
+
+<body>
+    <input/>
+    <button onclick="longOperation()">click me</button>
+    <button onclick="longOperationAsync()">click Async</button>
+    <div id="res"></div>
+    <div id="res1"></div>
+</body>
+
+</html>

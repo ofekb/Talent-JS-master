@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="productsModule">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="productsModule.js"></script>
+</head>
+<body>
+
+    <div ng-controller="ProductsController">
+	
+		<!-- The topProduct Model is accessible: -->
+        <h2>Top Product: </h2>
+        <h4>Product ID: {{topProduct.productID}}</h4>
+        <h4>Product Name and Price: {{topProduct.productName + ", $" + topProduct.unitPrice}}</h4>
+
+        <hr />
+
+        <h2>First Product: </h2>
+        <h4>Product ID: {{products[0].productID}}</h4>
+        <h4>Name and Price: {{products[0].productName + ', $' + products[0].unitPrice}}</h4>
+
+        <hr />
+
+        <h2>All Products: </h2>
+        <ul>
+            <!-- ng-repeat causes the current tag to be repeat according the Model.
+            This is like a foreach loop, where item is one product inside products: -->
+            <li ng-repeat="item in products">
+                <h4>{{item.productName + ', $' + item.unitPrice + ', ID: ' + item.productID}}</h4>
+            </li>
+        </ul>
+
+        <hr />
+
+        <!-- Same, but in a table: -->
+        <table border="1" align="center">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+            </tr>
+            <tr ng-repeat="item in products">
+                <td>{{item.productID}}</td>
+                <td>{{item.productName}}</td>
+                <td>{{item.unitPrice}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>

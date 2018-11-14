@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+        /*
+        local storage - is stored also after the user closes the current page
+        session storage - is stored only while the current session is running
+        */
+        onload = () => {
+            const prevColor = localStorage.getItem("userSetting");
+
+            //if 'prevColor' is : undefined / false / null / 0 / NaN / ""
+            //we will use  "#8080ff"
+            //else - we will use 'prevColor'
+            document.body.style.backgroundColor = prevColor || "#8080ff";
+        };
+
+        changeColor = () => {
+            const color = document.getElementById("inputColor").value;
+            document.body.style.backgroundColor = color;
+            localStorage.setItem("userSetting", color);
+        };
+
+        resetColor = () => {
+            localStorage.clear();
+        }
+    </script>
+</head>
+
+<body>
+    <input type="color" id="inputColor" />
+    <button onclick="changeColor()">change background color</button>
+    <button onclick="resetColor()">reset background color</button>
+</body>
+
+</html>

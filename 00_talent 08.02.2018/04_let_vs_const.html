@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+
+        let num1;
+        num1=4;
+        num1=3;
+
+
+        //const num2;  //Uncaught SyntaxError: Missing initializer in const declaration
+        const num3=4;
+        //num3=3;  //Uncaught TypeError: Assignment to constant variable.
+
+        console.log(num3+1);   
+        console.log(num3++);  //Uncaught TypeError: Assignment to constant variable.
+
+        const arr1=[];
+        arr1[0]=2;
+        arr1.push(3);
+        //console.log(arr1); //[2,3]
+
+
+        const arr2=[1];
+       //arr1=arr2;  //Uncaught TypeError: Assignment to constant variable.
+
+
+        console.log(arr1.concat(arr2));  //[2, 3, 1]
+        console.log(arr1); //[2,3]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

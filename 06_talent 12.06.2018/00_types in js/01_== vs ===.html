@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+        let num1 = 1;
+        let str = "1";
+
+        console.log(`num1 == str is ${num1 == str}`);  //--> num1 == str is true
+        console.log(`num1 === str is ${num1 === str}`); //num1 === str is false
+
+
+        //----val type checks if the value of both are the same
+        let x1 = 4;
+        let x2 = 4;
+
+        console.log(`x1 == x2 is ${x1 == x2}`);  //--> x1==x2 is true
+
+
+         //----ref type checks if the pointer in the stack points to the same object in the heap
+        let arr1 = [1, 1, 1]
+        let arr2 = [1, 1, 1]
+
+        console.log(`arr1 == arr2 is ${arr1 == arr2}`);  //--> arr1==arr2 is false
+
+        //---string is immutable (so the == checks only if the val is the same)
+        let y1 = "Talent";
+        let y2 = "Talent";
+
+        console.log(`y1 == y2 is ${y1 == y2}`);  //--> y1==y2 is true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

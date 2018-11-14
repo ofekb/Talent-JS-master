@@ -1,0 +1,10 @@
+app-book-list{
+    float: left;
+}
+
+app-single-book{
+    position: fixed;
+    display: inline-block;
+    left:450px;
+    top:100px;
+}

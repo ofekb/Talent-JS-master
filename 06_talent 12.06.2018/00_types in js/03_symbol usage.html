@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        var student1 = {
+            "firstName": "Eldad"
+        };
+
+        student1.lastName = "N.";  //adding a new prop to student1
+
+        console.log(student1);  //{firstName: "Eldad", lastName: "N."}
+
+
+        student1.firstName = "David";  //overriding the prev val
+
+        console.log(student1);  //{firstName: "David", lastName: "N."}
+
+
+
+
+        var student2 = {
+            [Symbol("firstName")]: "Eldad"
+        };
+
+        student2.lastName = "N.";  //adding a new prop to student2
+
+        console.log(student2);  //{lastName: "N.", Symbol(firstName): "Eldad"}
+
+
+        student2[Symbol("firstName")] = "David";  //adding a new prop to student2 
+
+        console.log(student2);  //{lastName: "N.", Symbol(firstName): "Eldad", Symbol(firstName): "David"}
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

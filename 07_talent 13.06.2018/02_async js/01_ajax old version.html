@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+                <script>
+                        const request = new XMLHttpRequest();
+
+                        request.onload = function(){
+                                console.log(this.status);
+                                console.log(request.response);
+                        };
+
+                        request.onerror = () => { console.log("Error in request"); };
+
+                        request.open('GET', "https://restcountries.eu/rest/v2/name/israel?fullText=true&fields=flag");
+                        request.send();
+                </script>
+        </head>
+
+        <body>
+
+        </body>
+
+        </html>
